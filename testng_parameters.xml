@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" > 
+<suite name="Suite1" verbose="1" >
+  <test name="Regression1"   >
+	  <parameter name = "user" value = "TestUser"/>
+	  <parameter name = "pass" value = "12345@67890"/>
+	  <parameter name = "invuser" value = "BadUser"/>
+	  <parameter name = "invpass" value = "BadPass"/>
+	  <parameter name = "url" value = "https://keyfood.ro/"/>
+    <classes>
+      <class name="test.LoginTest" />
+   </classes>
+ </test>
+</suite>
