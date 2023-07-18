@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,4 +28,12 @@ public class MenuPage extends SeleniumWrappers{
 */	
 	public By myAccountLink2 = By.cssSelector("button[class='\"+ ceva + \"]");
 	
+	@FindBy(css = "input[id='dgwt-wcas-search-input-1']") public WebElement searchInput;
+	
+	
+	public void searchProduct(String product) {
+		click(searchInput);
+		sendKeys(searchInput, product);
+		searchInput.sendKeys(Keys.ENTER);
+	}
 }

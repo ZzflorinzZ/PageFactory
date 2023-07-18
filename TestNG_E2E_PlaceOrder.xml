@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" > 
+<suite name="E2E" verbose="1" >
+  <test name="PlaceOrder"   >
+	  <parameter name = "url" value = "https://keyfood.ro/"/>
+	  <parameter name = "user" value = "customer"/>
+	  <parameter name = "pass" value = "customer@123"/>
+	  <parameter name = "product1" value = "pretzels"/>
+	  <parameter name = "product2" value = "beef"/>
+    <classes>
+      <class name = "test.PlaceOrderTest"/>
+   </classes>
+ </test>
+</suite>

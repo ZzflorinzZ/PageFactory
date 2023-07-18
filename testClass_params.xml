@@ -6,8 +6,9 @@
 	  <parameter name = "invuser" value = "BadUser"/>
 	  <parameter name = "invpass" value = "BadPass"/>
 	  <parameter name = "url" value = "https://keyfood.ro/"/>
+	  <parameter name = "product" value = "pretzels"/>
     <classes>
-      <class name="test.LoginTest" />
+      <class name="test.TestClass"/>
    </classes>
  </test>
 </suite>

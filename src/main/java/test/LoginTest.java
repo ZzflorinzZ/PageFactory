@@ -8,7 +8,7 @@ import utils.BaseTest;
 public class LoginTest extends BaseTest{
 
 	@Parameters({"user", "pass"})
-	@Test
+	@Test(priority = 1)
 	public void login(String user, String pass) {
 		app.click(app.menu.myAccountLink);
 		app.myAccount.loginInApp(user, pass);

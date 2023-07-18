@@ -28,36 +28,33 @@ public class SeleniumWrappers extends BaseTest {
 	 * @param locator (By locator)
 	 */
 	public void click(WebElement element) {
-//		WebElement element;
 		try {
-//			waitForElementToBeClickable(locator);
-//			element = driver.findElement(locator);
+			waitForElementToBeClickable(element);
 			element.click();
 			System.out.println("Called method click");
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} catch (StaleElementReferenceException e) {
-//			element = driver.findElement(locator);
 			element.click();
 		}
 	}
 	
-	public void doubleClick(By locator) {
+	public void doubleClick(WebElement element) {
 		try {
-			waitForElementToBeClickable(locator);
+			waitForElementToBeClickable(element);
 			Actions action = new Actions(driver);
-			action.doubleClick(returnElement(locator)).perform();			
+			action.doubleClick(element).perform();			
 			System.out.println("Called method doubleClick");
 		} catch (StaleElementReferenceException e) {
 			Actions action = new Actions(driver);
-			action.doubleClick(returnElement(locator)).perform();	
+			action.doubleClick(element).perform();	
 		}
 	}
 
-	public void waitForElementToBeClickable(By locator) {
+	public void waitForElementToBeClickable(WebElement element) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.elementToBeClickable(locator));
+			wait.until(ExpectedConditions.elementToBeClickable(element));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}
