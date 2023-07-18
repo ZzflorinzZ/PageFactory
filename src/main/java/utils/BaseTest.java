@@ -10,6 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -23,15 +24,17 @@ import com.google.common.io.Files;
 
 import pages.BasePage;
 
-public class BaseTest {
+public class BaseTest extends Driver{
 	
-	public static WebDriver driver;
+	public WebDriver driver;
 	public BasePage app;
 
-	@Parameters({"url"})
+	@Parameters({"url", "browser"})
 	@BeforeClass(alwaysRun = true)
-	public void setup(String url) {
-		driver = new ChromeDriver();
+	public void setup(String url, String browser) {
+		
+		driver = initBrowser(browser);
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
