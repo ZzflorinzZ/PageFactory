@@ -24,16 +24,8 @@ public class PlaceOrderTest extends BaseTest{
 	@Test(priority = 2)
 	public void searchAndAddProductToCart(String product1, String product2) {
 		app.menu.searchProduct(product1);
-		app.click(app.genericProduct.addToCart);
-		
-/*		System.out.println(app.genericProduct.addToCartConfirmationText.getText());
-		StringBuilder firstProductConfirmationText = new StringBuilder(app.genericProduct.addToCartConfirmationText.getText());
-		firstProductConfirmationText.delete(0, 9);
-		System.out.println(firstProductConfirmationText);
-		assertEquals(firstProductConfirmationText, "“Rold Gold Tiny Twists Pretzels” has been added to your cart.");
-
-*/		assertNotNull(app.genericProduct.addToCartConfirmationText.getText());
-		
+		app.click(app.genericProduct.addToCart);		
+		assertTrue(app.genericProduct.addToCartConfirmationText.getText().contains("“Rold Gold Tiny Twists Pretzels” has been added to your cart."));		
 		app.menu.searchProduct(product2);
 		app.click(app.shopPage.beefStewMeat);
 		app.click(app.genericProduct.addToCart);
@@ -46,8 +38,6 @@ public class PlaceOrderTest extends BaseTest{
 		
 		StringBuilder initialTotalPrice = new StringBuilder(app.cartPage.totalPrice.getText().toString());
 		initialTotalPrice.delete(0, 1);
-
-		// “Rold Gold Tiny Twists Pretzels” has been added to your cart.
 		double initialTotalPriceD = Double.parseDouble(initialTotalPrice.toString());
 		
 		app.click(app.cartPage.increaseQtyButton);
