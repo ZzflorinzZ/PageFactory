@@ -29,6 +29,7 @@ public class MenuPage extends SeleniumWrappers{
 	public By myAccountLink2 = By.cssSelector("button[class='\"+ ceva + \"]");
 	
 	@FindBy(css = "input[id='dgwt-wcas-search-input-1']") public WebElement searchInput;
+	@FindBy(linkText = "BLOG") public WebElement blogLink;
 	
 	
 	public void searchProduct(String product) {

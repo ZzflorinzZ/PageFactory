@@ -15,7 +15,8 @@ public class Driver {
 		
 		if(browser.equalsIgnoreCase("chrome")) {	
 			//WebDriver driver = new ChromeDriver();
-			driver.set(new ChromeDriver(getChromeOptions()));
+//			driver.set(new ChromeDriver(getChromeOptions()));
+			driver.set(new ChromeDriver());
 			System.out.println("Chrome" + Thread.currentThread().getId());
 			return driver.get();	
 		}else if(browser.equalsIgnoreCase("firefox")) {
@@ -29,12 +30,12 @@ public class Driver {
 		}
 		return driver.get(); 	
 	}
-	
+/*	
 	public ChromeOptions getChromeOptions() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("--window-size=1580, 1280");
 		return options; 
 	}
-
+*/
 }

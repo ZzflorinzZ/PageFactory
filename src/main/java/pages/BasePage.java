@@ -16,6 +16,8 @@ public class BasePage extends SeleniumWrappers{
 	public ShopPage shopPage = new ShopPage(driver);
 	public CartPage	cartPage = new CartPage(driver);
 	public CheckoutPage	checkoutPage = new CheckoutPage(driver); 
+	public BlogPage	blogPage = new BlogPage(driver);
+	public GenericBlogPostPage genericBlogPostPage = new GenericBlogPostPage(driver);
 	
 
 }

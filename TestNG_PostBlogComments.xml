@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" > 
+<suite name="Suite1" verbose="1" >
+	
+	<parameter name = "url" value = "https://keyfood.ro/"/>
+	<parameter name = "commentText" value = "comment 4"/>
+	<parameter name = "author" value = "florin"/>
+	<parameter name = "email" value = "florin@gmail.com"/>
+	
+ <test name="Chrome">
+	  <parameter name = "browser" value = "chrome"/>
+   <classes>
+      <class name="test.PostBlogCommentsTest" />
+   </classes>
+ </test>
+ 
+</suite>

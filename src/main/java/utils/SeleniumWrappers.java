@@ -35,7 +35,8 @@ public class SeleniumWrappers extends BaseTest {
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		} catch (StaleElementReferenceException e) {
-			element.click();
+			element = element;
+			element.click(); 
 		}
 	}
 	
@@ -60,10 +61,10 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-	public void waitForElementToBeVisible(By locator) {
+	public void waitForElementToBeVisible(WebElement element) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			wait.until(ExpectedConditions.visibilityOf(element));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}
@@ -98,8 +99,7 @@ public class SeleniumWrappers extends BaseTest {
 	 */
 	public void sendKeys(WebElement element, String textToSend) {
 		try {
-//			waitForElementToBeVisible(locator);
-//			WebElement element = driver.findElement(locator);
+			waitForElementToBeVisible(element);
 			element.clear();
 			element.sendKeys(textToSend);
 		} catch (NoSuchElementException e) {
@@ -107,9 +107,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-	public boolean checkElementIsDisplayed(By locator) {
+	public boolean checkElementIsDisplayed(WebElement element) {
 		try {
-			driver.findElement(locator).isDisplayed();
+			element.isDisplayed();
 			return true;
 		} catch (NoSuchElementException e) {
 			return false;
@@ -127,18 +127,19 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 */
-	public void hooverOnElement(By locator) {
+	public void hooverOnElementVisible(WebElement element) {
 		Actions hoover = new Actions(driver);
-			waitForElementToBeVisible(locator);
-			hoover.moveToElement(returnElement(locator)).perform();
+			waitForElementToBeVisible(element);
+			hoover.moveToElement(element).perform();
 	}
-	
-	public void hooverOnElementPresent(By locator) {
+
+/*	
+	public void hooverOnElementPresent(WebElement element) {
 		Actions hoover = new Actions(driver);
-			waitForElementToBePresent(locator);
-			hoover.moveToElement(returnElement(locator)).perform();
+			waitForElementToBePresent(element);
+			hoover.moveToElement(element).perform();
 	}
-	
+*/	
 
 	public void selectByIndex(By locator, int index) {
 		try {
