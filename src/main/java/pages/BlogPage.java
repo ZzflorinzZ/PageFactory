@@ -23,7 +23,9 @@ public class BlogPage extends SeleniumWrappers{
 	@FindBy(linkText = "English Breakfast Tea With Tasty Donut Desserts") public WebElement blogPost3;
 	@FindBy(linkText = "On the other hand we provide denounce with righteous") public WebElement blogPost4;
 	
-	public List<WebElement> blogPosts = new ArrayList<>(Arrays.asList(blogPost1, blogPost2, blogPost3, blogPost4));
-	
+	public List<WebElement> initBlogPost(){
+	List<WebElement> blogPosts = new ArrayList<>(Arrays.asList(blogPost1, blogPost2, blogPost3, blogPost4));
+		return blogPosts;
+	}
 
 }

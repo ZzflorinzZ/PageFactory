@@ -24,8 +24,14 @@ public class WishlistPage extends SeleniumWrappers{
 	@FindBy(xpath = "//span[text()='Add to Cart']") public WebElement addToCartButton;
 	@FindBy(xpath = "//span[text()='Buy product']") public WebElement buyProductButton;
 	
-//	Map<WebElement, WebElement> wishlistProducts = new HashMap<>();	
-//	wishlistProducts.put (zeviaKidz, buyProductButton);
+	public Map<WebElement, WebElement> initWishlistProducts(){
+	Map<WebElement, WebElement> wishlistProducts = new HashMap<>();	
+		wishlistProducts.put (zeviaKidz, buyProductButton);
+		wishlistProducts.put (pastelAlmond, addToCartButton);
+		wishlistProducts.put (melons, addToCartButton);
+		wishlistProducts.put (eggBites, addToCartButton);
+	return wishlistProducts;
+	}
 	
 	@FindBy(css = "input[title^='Select all']") public WebElement selectAllCheckbox;
 	@FindBy(id = "tinvwl_product_actions") public WebElement actionsDropdownList;

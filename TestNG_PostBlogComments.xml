@@ -2,7 +2,7 @@
 <suite name="Suite1" verbose="1" >
 	
 	<parameter name = "url" value = "https://keyfood.ro/"/>
-	<parameter name = "commentText" value = "comment 4"/>
+	<parameter name = "commentText" value = "comment 5"/>
 	<parameter name = "author" value = "florin"/>
 	<parameter name = "email" value = "florin@gmail.com"/>
 	

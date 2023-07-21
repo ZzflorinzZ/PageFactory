@@ -37,7 +37,8 @@ public class MenuPage extends SeleniumWrappers{
 	@FindBy(linkText = "Beverages") public WebElement beverages;
 	@FindBy(linkText = "Wishlist") public WebElement wishlist;
 	
-	
+	//de pus categoriile intr-o lista
+	//o iterez cu un if simplu in test
 	
 	public void searchProduct(String product) {
 		click(searchInput);

@@ -1,5 +1,9 @@
 package pages;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,4 +23,10 @@ public class GenericProductCategoryPage extends SeleniumWrappers{
 	@FindBy(linkText = "Shimmer Pastel Almond Blend") public WebElement pastelAlmond;
 	@FindBy(linkText = "Zevia Kidz Strawberry Lemonade Zero Calorie Soda") public WebElement zeviaKidz;
 
+	//de pus intr-o lista
+
+	public List<WebElement> initListOfProducts(){
+		List<WebElement> ListOfProducts = new ArrayList<>(Arrays.asList(melons, eggBites, pastelAlmond, zeviaKidz));
+		return ListOfProducts;
+	}
 }

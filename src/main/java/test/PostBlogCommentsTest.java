@@ -18,10 +18,9 @@ public class PostBlogCommentsTest extends BaseTest {
 		Actions action = new Actions(driver);
 
 		app.click(app.menu.blogLink);
-		for (WebElement element : app.blogPage.blogPosts) {
-			assertTrue(true);
-/*			app.checkElementIsDisplayed(element);												// pica pe isDisplayed in <<for each>>
-			app.click(element); 																// nu face click in <<for each>>
+		for (WebElement element : app.blogPage.initBlogPost()) {
+			app.checkElementIsDisplayed(element);												
+			app.click(element); 																
 			action.moveToElement(app.genericBlogPostPage.postCommentButton).perform();
 			assertEquals(app.genericBlogPostPage.commentTextToPost.getTagName(), "textarea");
 			assertEquals(app.genericBlogPostPage.authorPost.getTagName(), "input");
@@ -29,19 +28,7 @@ public class PostBlogCommentsTest extends BaseTest {
 			app.genericBlogPostPage.postComment(commentText, author, email);
 			assertTrue(app.genericBlogPostPage.commentConfirmationText.getText().contains("Your comment is awaiting moderation."));
 			driver.navigate().to("https://keyfood.ro/blog/");
-*/		}
-		
-	// in afara <<for each>> codul functioneaza, dar nu are sens sa duplic codul pt fiecare blog post; 
-	// ar trebui sa pot sa-l folosesc in <<for each>>
-		app.checkElementIsDisplayed(app.blogPage.blogPost1);
-		app.click(app.blogPage.blogPost1);
-		action.moveToElement(app.genericBlogPostPage.postCommentButton).perform();
-		assertEquals(app.genericBlogPostPage.commentTextToPost.getTagName(), "textarea");
-		assertEquals(app.genericBlogPostPage.authorPost.getTagName(), "input");
-		assertEquals(app.genericBlogPostPage.emailPost.getTagName(), "input");
-		app.genericBlogPostPage.postComment(commentText, author, email);
-		assertTrue(app.genericBlogPostPage.commentConfirmationText.getText().contains("Your comment is awaiting moderation."));
-		driver.navigate().to("https://keyfood.ro/blog/");
+		}
 	}
 
 }
