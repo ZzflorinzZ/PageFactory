@@ -12,6 +12,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.TestException;
+
+
 
 public class SeleniumWrappers extends BaseTest {
 	
@@ -31,10 +34,13 @@ public class SeleniumWrappers extends BaseTest {
 		try {
 			waitForElementToBeClickable(element);
 			element.click();
-			System.out.println("Called method click");
+			Log.info("Called method click");
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method click()");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found!");
 		} catch (StaleElementReferenceException e) {
+			Log.error("catch StaleElementReferenceException on: "+element.getAttribute("outerHTML"));
 			element = element;
 			element.click(); 
 		}
@@ -52,6 +58,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
+//	log.ingo("call <waitForElementToBeClickable>")
 	public void waitForElementToBeClickable(WebElement element) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -98,12 +105,15 @@ public class SeleniumWrappers extends BaseTest {
 	 * @param textToSend --> String value
 	 */
 	public void sendKeys(WebElement element, String textToSend) {
+		Log.info("call <sendKeys> on element " + element.getAttribute("outerHTML"));
 		try {
 			waitForElementToBeVisible(element);
 			element.clear();
 			element.sendKeys(textToSend);
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <sendkeys>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <sendkeys>");
 		}
 	}
 

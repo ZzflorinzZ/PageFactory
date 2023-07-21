@@ -1,0 +1,10 @@
+21:48:15.883 [TestNG-tests-1] INFO  utils.Log - Called method click
+21:48:16.075 [TestNG-tests-1] INFO  utils.Log - call <sendKeys> on element <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="">
+21:48:16.537 [TestNG-tests-2] INFO  utils.Log - Called method click
+21:48:16.563 [TestNG-tests-1] INFO  utils.Log - call <sendKeys> on element <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+21:48:16.763 [TestNG-tests-2] INFO  utils.Log - call <sendKeys> on element <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="">
+21:48:17.329 [TestNG-tests-2] INFO  utils.Log - call <sendKeys> on element <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+21:48:18.149 [TestNG-tests-1] INFO  utils.Log - Called method click
+21:48:19.058 [TestNG-tests-2] INFO  utils.Log - Called method click
+21:48:19.156 [TestNG-tests-1] INFO  utils.Log - Called method click
+21:48:19.990 [TestNG-tests-2] INFO  utils.Log - Called method click

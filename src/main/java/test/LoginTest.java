@@ -13,5 +13,12 @@ public class LoginTest extends BaseTest{
 		app.click(app.menu.myAccountLink);
 		app.myAccount.loginInApp(user, pass);
 	}
+	
+	@Parameters({"invuser", "invpass"})
+	@Test(priority = 2)
+	public void invalidLogin(String user, String pass) {
+		app.click(app.menu.myAccountLink);
+		app.myAccount.loginInApp(user, pass);
+	}
 
 }

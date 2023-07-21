@@ -2,6 +2,7 @@ package utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -31,7 +32,7 @@ public class BaseTest extends Driver{
 
 	@Parameters({"url", "browser"})
 	@BeforeClass(alwaysRun = true)
-	public void setup(String url, String browser) {
+	public void setup(String url, String browser) throws MalformedURLException {
 		
 		driver = initBrowser(browser);
 
