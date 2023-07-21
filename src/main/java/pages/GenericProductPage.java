@@ -17,6 +17,8 @@ public class GenericProductPage extends SeleniumWrappers{
 	@FindBy(xpath = "//button[text()='Add to cart']") public WebElement addToCart;
 	@FindBy(css = "div[role='alert']") public WebElement addToCartConfirmationText;
 	@FindBy(linkText = "View cart") public WebElement viewCartButton;
+	@FindBy(xpath = "(//span[@class='tinvwl_add_to_wishlist-text'])[2]") public WebElement addToWishlistButton;
+	@FindBy(css = "button[class$='tinvwl_button_close']") public WebElement wishlistAlertCloseButton;
 	
 
 

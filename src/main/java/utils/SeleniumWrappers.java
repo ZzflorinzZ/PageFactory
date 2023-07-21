@@ -141,18 +141,18 @@ public class SeleniumWrappers extends BaseTest {
 	}
 */	
 
-	public void selectByIndex(By locator, int index) {
+	public void selectByIndex(WebElement element, int index) {
 		try {
-			Select select = new Select(returnElement(locator));
+			Select select = new Select(element);
 			select.selectByIndex(index);
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void selectByValue(By locator, String value) {
+	public void selectByValue(WebElement element, String value) {
 		try {
-			Select select = new Select(returnElement(locator));
+			Select select = new Select(element);
 			select.selectByValue(value);
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();

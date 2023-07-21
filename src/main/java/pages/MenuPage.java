@@ -30,6 +30,13 @@ public class MenuPage extends SeleniumWrappers{
 	
 	@FindBy(css = "input[id='dgwt-wcas-search-input-1']") public WebElement searchInput;
 	@FindBy(linkText = "BLOG") public WebElement blogLink;
+	@FindBy(xpath = "//span[text()='ALL CATEGORIES']") public WebElement allCategories;
+	@FindBy(linkText = "Fruits & Vegetables") public WebElement fruitsAndVegetables;
+	@FindBy(linkText = "Breakfast & Dairy") public WebElement breakfastAndDairy;
+	@FindBy(linkText = "Biscuits & Snacks") public WebElement biscuitsAndSnacks;
+	@FindBy(linkText = "Beverages") public WebElement beverages;
+	@FindBy(linkText = "Wishlist") public WebElement wishlist;
+	
 	
 	
 	public void searchProduct(String product) {
