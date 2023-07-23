@@ -1,5 +1,9 @@
 package pages;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -37,8 +41,10 @@ public class MenuPage extends SeleniumWrappers{
 	@FindBy(linkText = "Beverages") public WebElement beverages;
 	@FindBy(linkText = "Wishlist") public WebElement wishlist;
 	
-	//de pus categoriile intr-o lista
-	//o iterez cu un if simplu in test
+	public List<WebElement> initListOfProductCategories(){
+		List<WebElement> ListOfProductCategories = new ArrayList<>(Arrays.asList(fruitsAndVegetables, breakfastAndDairy, biscuitsAndSnacks, beverages));
+		return ListOfProductCategories;
+	}
 	
 	public void searchProduct(String product) {
 		click(searchInput);

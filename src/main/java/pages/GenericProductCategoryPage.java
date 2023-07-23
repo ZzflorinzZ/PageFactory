@@ -23,8 +23,6 @@ public class GenericProductCategoryPage extends SeleniumWrappers{
 	@FindBy(linkText = "Shimmer Pastel Almond Blend") public WebElement pastelAlmond;
 	@FindBy(linkText = "Zevia Kidz Strawberry Lemonade Zero Calorie Soda") public WebElement zeviaKidz;
 
-	//de pus intr-o lista
-
 	public List<WebElement> initListOfProducts(){
 		List<WebElement> ListOfProducts = new ArrayList<>(Arrays.asList(melons, eggBites, pastelAlmond, zeviaKidz));
 		return ListOfProducts;
