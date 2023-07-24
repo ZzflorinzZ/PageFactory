@@ -22,189 +22,363 @@ public class SeleniumWrappers extends BaseTest {
 		this.driver = driver;
 	}
 
+//CLICK METHODS	
 	/**
-	 * Wrapped method over selenium default click() method, enhanced with:</br>
+	 * Wrapped method over Selenium default click() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
-	 * 2. Retry mechanism</br>
-	 * 3. waitForElementToBeClickable()</br>
+	 * 2. waitForElementToBeClickable() method, before any action to be performed on webElement</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 4. catch StaleElementReferenceException</br>
+	 * 5. Retry mechanism</br>
 	 * 
-	 * @param locator (By locator)
+	 * @param locator (WebElement)
 	 */
 	public void click(WebElement element) {
+		Log.info("Called method <click> on element" + element.getAttribute("outerHTML"));
 		try {
 			waitForElementToBeClickable(element);
 			element.click();
-			Log.info("Called method click");
 		} catch (NoSuchElementException e) {
-			Log.error("Element not found in method click()");
+			Log.error("Element not found in method <click()>");
 			Log.error(e.getMessage());
-			throw new TestException("Element not found!");
+			throw new TestException("Element not found in method <click()>");
 		} catch (StaleElementReferenceException e) {
-			Log.error("catch StaleElementReferenceException on: "+element.getAttribute("outerHTML"));
+			Log.error("Catch StaleElementReferenceException in method <click> on: " + element.getAttribute("outerHTML"));
 			element = element;
 			element.click(); 
 		}
 	}
 	
+	/**
+	 * Wrapped method over Selenium Actions default doubleClick() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. waitForElementToBeClickable() method, before any action to be performed on webElement</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 4. catch StaleElementReferenceException</br>
+	 * 5. Retry mechanism</br>
+	 * 
+	 * @param element (WebElement)
+	 */
 	public void doubleClick(WebElement element) {
+		Log.info("Called method <doubleClick> on element" + element.getAttribute("outerHTML"));
 		try {
 			waitForElementToBeClickable(element);
 			Actions action = new Actions(driver);
 			action.doubleClick(element).perform();			
-			System.out.println("Called method doubleClick");
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <doubleClick()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <doubleClick()>");
 		} catch (StaleElementReferenceException e) {
+			Log.error("Catch StaleElementReferenceException in method <doubleClick> on: " + element.getAttribute("outerHTML"));
+			element = element;
 			Actions action = new Actions(driver);
 			action.doubleClick(element).perform();	
 		}
 	}
 
-//	log.ingo("call <waitForElementToBeClickable>")
+//	Log.info("call <waitForElementToBeClickable> on " + locator.toString());	--pt By locator
+	
+//WAIT METHODS
+	/**
+	 * Wrapped method over Selenium default elementToBeClickable() condition, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. Explicit wait</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 */
 	public void waitForElementToBeClickable(WebElement element) {
+		Log.info("Called method <waitForElementToBeClickable> on element" + element.getAttribute("outerHTML"));
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void waitForElementToBeVisible(WebElement element) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.visibilityOf(element));
-		} catch (NoSuchElementException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void waitForElementToBePresent(By locator) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-		} catch (NoSuchElementException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void textToBePresentInElementLocated(By locator, String textToBePresent) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, textToBePresent));
-		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <waitForElementToBeClickable()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <waitForElementToBeClickable()>");
 		}
 	}
 
 	/**
-	 * Custom sendKeys method. Wraps default Selenium sendKeys and enhance
-	 * with:</br>
-	 * 1. Clear() method before sending text</br>
-	 * 2. waitForElementToBeVisible() before any action on webElement</br>
+	 * Wrapped method over Selenium default visibilityOf() condition, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. Explicit wait</br>
+	 * 3. catch NoSuchElementException</br>
 	 * 
-	 * @param locator    (By locator) --> used inside method to create WebElement
-	 * @param textToSend --> String value
+	 * @param element (WebElement)
+	 */
+	public void waitForElementToBeVisible(WebElement element) {
+		Log.info("Called method <waitForElementToBeVisible> on element" + element.getAttribute("outerHTML"));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <waitForElementToBeVisible()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <waitForElementToBeVisible()>");
+		}
+	}
+	
+	/**
+	 * Wrapped method over Selenium default ...............() condition, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. Explicit wait</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 */
+/*	public void waitForElementToBePresent(WebElement element) {
+  		Log.info("Called method <waitForElementToBePresent> on element " + element.getAttribute("outerHTML"));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.presenceOfElementLocated(element));			//cu ce se poate inlocui pt WebElement metoda <<presenceOfElementLocated>> folosita pt By ??
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <waitForElementToBePresent()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found!");
+		}
+	}
+*/	
+	/**
+	 * Wrapped method over Selenium default textToBePresentInElement() condition, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. Explicit wait</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @param textToBePresent (String value)
+	 */
+	public void waitForTextToBePresentInElement(WebElement element, String textToBePresent) {
+		Log.info("Called method <waitForTextToBePresentInElement> on element " + element.getAttribute("outerHTML"));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.textToBePresentInElement(element, textToBePresent));
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <waitForTextToBePresentInElement()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <waitForTextToBePresentInElement()>");
+		}
+	}
+
+	/**
+	 * Wrapped method over Selenium default sendKeys() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. waitForElementToBeVisible() method, before any action to be performed on webElement</br>
+	 * 3. Clear() method before sending text</br>
+	 * 4. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @param textToSend (String value)
 	 */
 	public void sendKeys(WebElement element, String textToSend) {
-		Log.info("call <sendKeys> on element " + element.getAttribute("outerHTML"));
+		Log.info("Called method <sendKeys()> on element " + element.getAttribute("outerHTML"));
 		try {
 			waitForElementToBeVisible(element);
 			element.clear();
 			element.sendKeys(textToSend);
 		} catch (NoSuchElementException e) {
-			Log.error("Element not found in method <sendkeys>");
+			Log.error("Element not found in method <sendKeys()>");
 			Log.error(e.getMessage());
-			throw new TestException("Element not found in method <sendkeys>");
+			throw new TestException("Element not found in method <sendKeys()>");
 		}
 	}
 
+//IS DISPLAYED METHOD	
+	/**
+	 * Wrapped method over Selenium default isDisplayed() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @return boolean
+	 */
 	public boolean checkElementIsDisplayed(WebElement element) {
+		Log.info("Called method <checkElementIsDisplayed()> on element " + element.getAttribute("outerHTML"));
 		try {
 			element.isDisplayed();
 			return true;
 		} catch (NoSuchElementException e) {
-			return false;
+			Log.error("Element not found in method <checkElementIsDisplayed()>");
+			Log.error(e.getMessage());
+			return false;					
 		}
 	}
 
-/*	public void hooverOnElement(By locator) {
+//HOOVER METHODS
+	/**
+	 * Wrapped method over Selenium Actions default moveToElement() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. waitForElementToBeVisible() method, before any action to be performed on webElement</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 */
+	public void hooverOnElementVisible(WebElement element) {
+		Log.info("Called method <hooverOnElementVisible()> on element " + element.getAttribute("outerHTML"));
 		Actions hoover = new Actions(driver);
 		try {
-			waitForElementToBeVisible(locator);
-			WebElement element = driver.findElement(locator);
-			hoover.moveToElement(element).perform();
-		} catch (NoSuchElementException e) {
-			e.printStackTrace();
-		}
-	}
-*/
-	public void hooverOnElementVisible(WebElement element) {
-		Actions hoover = new Actions(driver);
 			waitForElementToBeVisible(element);
 			hoover.moveToElement(element).perform();
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <hooverOnElementVisible()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <hooverOnElementVisible()>");
+		}	
 	}
 
-/*	
-	public void hooverOnElementPresent(WebElement element) {
+	/**
+	 * Wrapped method over Selenium Actions default moveToElement() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. ...................() method, before any action to be performed on webElement</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 */
+/*	public void hooverOnElementPresent(WebElement element) {
+		Log.info("Called method <hooverOnElementPresent()> on element " + element.getAttribute("outerHTML"));
 		Actions hoover = new Actions(driver);
+		try {
 			waitForElementToBePresent(element);
 			hoover.moveToElement(element).perform();
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <hooverOnElementPresent()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <hooverOnElementPresent()>");
+		}	
 	}
 */	
 
+//DROPDOWN LISTS METHODS
+	/**
+	 * Wrapped method over Selenium Select default selectByIndex() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @param index (Integer value)
+	 */
 	public void selectByIndex(WebElement element, int index) {
+		Log.info("Called method <selectByIndex()> on element " + element.getAttribute("outerHTML"));
 		try {
 			Select select = new Select(element);
 			select.selectByIndex(index);
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <selectByIndex()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <selectByIndex()>");
 		}
 	}
 
+	/**
+	 * Wrapped method over Selenium Select default selectByValue() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @param value (String value)
+	 */
 	public void selectByValue(WebElement element, String value) {
+		Log.info("Called method <selectByValue()> on element " + element.getAttribute("outerHTML"));
 		try {
 			Select select = new Select(element);
 			select.selectByValue(value);
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <selectByValue()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <selectByValue()>");
 		}
 	}
-
-	public String getSelectedOption(By locator) {
+	
+	/**
+	 * Wrapped method over Selenium Select default selectByVisibleText() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @param text (String value)
+	 */
+	public void selectByVisibleText(WebElement element, String text) {
+		Log.info("Called method <selectByVisibleText()> on element " + element.getAttribute("outerHTML"));
 		try {
-			Select select = new Select(returnElement(locator));
+			Select select = new Select(element);
+			select.selectByVisibleText(text);
+		} catch (NoSuchElementException e) {
+			Log.error("Element not found in method <selectByVisibleText()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <selectByVisibleText()>");
+		}
+	}
+	
+	/**
+	 * Wrapped method over Selenium Select default getFirstSelectedOption() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement)
+	 * @return String (String value) --> value of the selected option
+	 */
+	public String getSelectedOption(WebElement element) {
+		Log.info("Called method <getSelectedOption()> on element " + element.getAttribute("outerHTML"));
+		try {
+			Select select = new Select(element);
 			return select.getFirstSelectedOption().getText();
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <getSelectedOption()>");
+			Log.error(e.getMessage());
+			return null;
 		}
-		return null;
 	}
 
-	public void dragAndDropElementToElement(By locator1, By locator2) {
+//DRAG & DROP METHODS
+	/**
+	 * Wrapped method over Selenium Actions default dragAndDrop() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element1 (WebElement) --> element to be moved
+	 * @param element2 (WebElement) --> element on which the first element is moved over
+	 */
+	public void dragAndDropElementToElement(WebElement element1, WebElement element2) {
+		Log.info("Called method <dragAndDropElementToElement()> on element " + element1.getAttribute("outerHTML") + " and " + element2.getAttribute("outerHTML"));
 		try {
-			WebElement e1 = driver.findElement(locator1);
-			WebElement e2 = driver.findElement(locator2);
 			Actions action = new Actions(driver);
-			action.dragAndDrop(e1, e2).perform();
+			action.dragAndDrop(element1, element2).perform();
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <dragAndDropElementToElement()>");			//ar trebui sa diferentiez NoSuchElementException pe element1 si element2; ma gandesc sa folosesc un if, dar nu-mi dai seama cum ar trebui sa pun conditia
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <dragAndDropElementToElement()>");
 		}
 	}
 
-	public void dragAndDrop(By locator, int x, int y) {
+	/**
+	 * Wrapped method over Selenium Actions default dragAndDropBy() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. catch NoSuchElementException</br>
+	 * 
+	 * @param element (WebElement) --> element to be moved
+	 * @param x (Integer value) --> horizontal move
+	 * @param y (Integer value) --> vertical move
+	 */
+	public void dragAndDrop(WebElement element, int x, int y) {
+		Log.info("Called method <dragAndDrop()> on element " + element.getAttribute("outerHTML"));
 		try {
-			WebElement element = driver.findElement(locator);
-
 			Actions action = new Actions(driver);
-			/*
-			 * action .moveToElement(element) .clickAndHold() .moveByOffset(x, y) .release()
-			 * .perform();
-			 */
-			action.dragAndDropBy(element, x, y).perform();
+/*			action 
+					.moveToElement(element)
+			  		.clickAndHold()
+			  		.moveByOffset(x, y)
+			  		.release()
+			  		.perform();
+*/			action.dragAndDropBy(element, x, y).perform();
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			Log.error("Element not found in method <dragAndDrop()>");
+			Log.error(e.getMessage());
+			throw new TestException("Element not found in method <dragAndDrop()>");
 		}
 	}
 
+/*	
 	public WebElement returnElement(By locator) {
 		try {
 			return driver.findElement(locator);
@@ -213,4 +387,5 @@ public class SeleniumWrappers extends BaseTest {
 		}
 		return null;
 	}
+*/	
 }
