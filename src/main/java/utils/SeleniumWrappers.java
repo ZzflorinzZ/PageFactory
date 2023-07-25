@@ -2,6 +2,8 @@ package utils;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -31,7 +33,7 @@ public class SeleniumWrappers extends BaseTest {
 	 * 4. catch StaleElementReferenceException</br>
 	 * 5. Retry mechanism</br>
 	 * 
-	 * @param locator (WebElement)
+	 * @param element (WebElement)
 	 */
 	public void click(WebElement element) {
 		Log.info("Called method <click> on element" + element.getAttribute("outerHTML"));
@@ -161,6 +163,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
+//SEND KEYS METHOD		
 	/**
 	 * Wrapped method over Selenium default sendKeys() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -378,14 +381,30 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-/*	
-	public WebElement returnElement(By locator) {
+	/**
+	 * Wrapped method over Selenium default driver.switchTo().window() functionality, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. click() custom method</br>
+	 * 3. driver.close() functionality</br>
+	 * 4. catch Exception</br>
+	 * 
+	 * @param element (WebElement)
+	 * @return String (String value of current URL)
+	 */
+	public String checkRedirectedUrlAndReturnToInitialPage(WebElement element) {
+		Log.info("Called method <checkRedirectedUrlAndReturnToInitialPage()> on element " + element.getAttribute("outerHTML"));
 		try {
-			return driver.findElement(locator);
-		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			click(element);
+			List<String> browserTabs = new ArrayList<>(driver.getWindowHandles());
+			driver.switchTo().window(browserTabs.get(1));
+			String currentURL = driver.getCurrentUrl();		
+			driver.close();
+			driver.switchTo().window(browserTabs.get(0));
+			return currentURL;
+		} catch (Exception e) {
+			Log.error("Element not found in method <checkRedirectedUrlAndReturnToInitialPage()>");
+			Log.error(e.getMessage());
+			return e.getMessage(); 
 		}
-		return null;
 	}
-*/	
 }
