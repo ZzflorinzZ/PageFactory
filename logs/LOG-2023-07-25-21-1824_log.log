@@ -1,0 +1,55 @@
+21:18:24.187 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/my-account-2/">My account</a>
+21:18:24.254 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/my-account-2/">My account</a>
+21:18:25.059 [main] INFO  utils.Log - Called method <sendKeys()> on element <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="">
+21:18:25.084 [main] INFO  utils.Log - Called method <waitForElementToBeVisible> on element<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="">
+21:18:25.283 [main] INFO  utils.Log - Called method <sendKeys()> on element <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+21:18:25.307 [main] INFO  utils.Log - Called method <waitForElementToBeVisible> on element<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+21:18:25.471 [main] INFO  utils.Log - Called method <click> on element<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">Log in</button>
+21:18:25.493 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">Log in</button>
+21:18:26.429 [main] INFO  utils.Log - Called method <click> on element<span class="text">ALL CATEGORIES</span>
+21:18:26.453 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="text">ALL CATEGORIES</span>
+21:18:26.723 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product-category/fruits-vegetables/"><i class="klbth-icon-apple-juice"></i> Fruits &amp; Vegetables</a>
+21:18:26.779 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product-category/fruits-vegetables/"><i class="klbth-icon-apple-juice"></i> Fruits &amp; Vegetables</a>
+21:18:28.007 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product/fresh-produce-melons-each/" title="Fresh Produce Melons Each">Fresh Produce Melons Each</a>
+21:18:28.075 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product/fresh-produce-melons-each/" title="Fresh Produce Melons Each">Fresh Produce Melons Each</a>
+21:18:29.142 [main] INFO  utils.Log - Called method <click> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:29.172 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:29.604 [main] INFO  utils.Log - Called method <click> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:29.629 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:29.757 [main] INFO  utils.Log - Called method <click> on element<span class="text">ALL CATEGORIES</span>
+21:18:29.779 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="text">ALL CATEGORIES</span>
+21:18:30.053 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product-category/breakfast-dairy/"><i class="klbth-icon-boiled-egg"></i> Breakfast &amp; Dairy</a>
+21:18:30.110 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product-category/breakfast-dairy/"><i class="klbth-icon-boiled-egg"></i> Breakfast &amp; Dairy</a>
+21:18:31.375 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product/vital-farms-pasture-raised-egg-bites-bacon-cheddar/" title="Vital Farms Pasture-Raised Egg Bites Bacon &amp; Cheddar">Vital Farms Pasture-Raised Egg Bites Bacon &amp; Cheddar</a>
+21:18:31.445 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product/vital-farms-pasture-raised-egg-bites-bacon-cheddar/" title="Vital Farms Pasture-Raised Egg Bites Bacon &amp; Cheddar">Vital Farms Pasture-Raised Egg Bites Bacon &amp; Cheddar</a>
+21:18:32.467 [main] INFO  utils.Log - Called method <click> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:32.489 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:32.890 [main] INFO  utils.Log - Called method <click> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:32.912 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:33.033 [main] INFO  utils.Log - Called method <click> on element<span class="text">ALL CATEGORIES</span>
+21:18:33.057 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="text">ALL CATEGORIES</span>
+21:18:33.373 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product-category/biscuits-snacks/"><i class="klbth-icon-candy"></i> Biscuits &amp; Snacks</a>
+21:18:33.423 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product-category/biscuits-snacks/"><i class="klbth-icon-candy"></i> Biscuits &amp; Snacks</a>
+21:18:34.559 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product/shimmer-pastel-almond-blend/" title="Shimmer Pastel Almond Blend">Shimmer Pastel Almond Blend</a>
+21:18:34.624 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product/shimmer-pastel-almond-blend/" title="Shimmer Pastel Almond Blend">Shimmer Pastel Almond Blend</a>
+21:18:35.629 [main] INFO  utils.Log - Called method <click> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:35.655 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:36.083 [main] INFO  utils.Log - Called method <click> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:36.106 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:36.222 [main] INFO  utils.Log - Called method <click> on element<span class="text">ALL CATEGORIES</span>
+21:18:36.245 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="text">ALL CATEGORIES</span>
+21:18:36.523 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product-category/beverages/"><i class="klbth-icon-cup"></i> Beverages</a>
+21:18:36.574 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product-category/beverages/"><i class="klbth-icon-cup"></i> Beverages</a>
+21:18:37.742 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/product/zevia-kidz-strawberry-lemonade-zero-calorie-soda/" title="Zevia Kidz Strawberry Lemonade Zero Calorie Soda">Zevia Kidz Strawberry Lemonade Zero Calorie Soda</a>
+21:18:37.816 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/product/zevia-kidz-strawberry-lemonade-zero-calorie-soda/" title="Zevia Kidz Strawberry Lemonade Zero Calorie Soda">Zevia Kidz Strawberry Lemonade Zero Calorie Soda</a>
+21:18:38.876 [main] INFO  utils.Log - Called method <click> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:38.903 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<span class="tinvwl_add_to_wishlist-text">Add to Wishlist</span>
+21:18:39.316 [main] INFO  utils.Log - Called method <click> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:39.343 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<button class="button tinvwl_button_close" type="button"><i class="ftinvwl ftinvwl-times"></i>Close					</button>
+21:18:39.480 [main] INFO  utils.Log - Called method <click> on element<a href="https://keyfood.ro/wishlist/">Wishlist</a>
+21:18:39.519 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<a href="https://keyfood.ro/wishlist/">Wishlist</a>
+21:18:41.396 [main] INFO  utils.Log - Called method <click> on element<input type="checkbox" class="global-cb" title="Select all for bulk action">
+21:18:41.417 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<input type="checkbox" class="global-cb" title="Select all for bulk action">
+21:18:41.598 [main] INFO  utils.Log - Called method <selectByValue()> on element <select name="product_actions" id="tinvwl_product_actions" class="tinvwl-break-input-filed form-control"><option value="" selected="selected">Actions</option><option value="add_selected">Add to Cart</option><option value="remove">Remove</option></select>
+21:18:41.759 [main] INFO  utils.Log - Called method <click> on element<button type="submit" class="button tinvwl-break-input tinvwl-break-checkbox" name="tinvwl-action" value="product_apply" title="Apply Action">Apply <span class="tinvwl-mobile">Action</span></button>
+21:18:41.786 [main] INFO  utils.Log - Called method <waitForElementToBeClickable> on element<button type="submit" class="button tinvwl-break-input tinvwl-break-checkbox" name="tinvwl-action" value="product_apply" title="Apply Action">Apply <span class="tinvwl-mobile">Action</span></button>

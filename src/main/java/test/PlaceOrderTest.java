@@ -1,7 +1,6 @@
 package test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertListContains;
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
