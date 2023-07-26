@@ -5,7 +5,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -16,19 +15,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.TestException;
 
-// mvn javadoc:javadoc	-- genereaza documentatie.
-//Plugin-uri
-//1. maven surefire - se foloseste daca avem doar clase de test in proiect
-//					- se foloseste pt unit teste
-// https://maven.apache.org/surefire/maven-failsafe-plugin/
-//mvn test - comanda rulare teste
-//mvn test -Dsuitexml= nume fisier.xml
-//======================================
-//2. maven failsafe - se foloseste daca avem si teste de integrare
-// https://maven.apache.org/surefire/maven-surefire-plugin/
-
-//codul aplicatiei sta in scr/main/java
-//codul testelor sta in src/test/java
 
 /**
  * orice
@@ -41,12 +27,12 @@ public class SeleniumWrappers extends BaseTest {
 
 //CLICK METHODS	
 	/**
-	 * Wrapped method over Selenium default click() method, enhanced with:
-	 * 1. Logging mechanism
-	 * 2. waitForElementToBeClickable() method, before any action to be performed on webElement
-	 * 3. catch NoSuchElementException
-	 * 4. catch StaleElementReferenceException
-	 * 5. Retry mechanism
+	 * Wrapped method over Selenium default click() method, enhanced with:</br>
+	 * 1. Logging mechanism</br>
+	 * 2. waitForElementToBeClickable() method, before any action to be performed on webElement</br>
+	 * 3. catch NoSuchElementException</br>
+	 * 4. catch StaleElementReferenceException</br>
+	 * 5. Retry mechanism</br>
 	 * 
 	 * @param element (WebElement)
 	 */
