@@ -18,6 +18,7 @@ public class Driver {
 	
 	//for parallel execution purpose
 	public static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+	public static ThreadLocal<String> runningBrowser =  new ThreadLocal<String>();
 	
 	public WebDriver initBrowser(String browser) throws MalformedURLException {
 		
@@ -33,6 +34,8 @@ public class Driver {
 //			rwd = new RemoteWebDriver(new URL("http://localhost:4444/"), getChromeOptions());
 //			driver.set(rwd);
 			
+			runningBrowser.set("CHROME ID: " + String.valueOf(Thread.currentThread().getId()));
+			
 			return driver.get();	
 			
 		}else if(browser.equalsIgnoreCase("firefox")) {
@@ -43,6 +46,8 @@ public class Driver {
 //			rwd = new RemoteWebDriver(new URL("http://localhost:4444/"), getFirefoxOptions());
 //			driver.set(rwd);
 			
+			runningBrowser.set("FIREFOX ID: " + String.valueOf(Thread.currentThread().getId()));
+			
 			return driver.get();
 		}else if(browser.equalsIgnoreCase("edge")) {
 			driver.set(new EdgeDriver(getEdgeOptions()));
@@ -51,6 +56,8 @@ public class Driver {
 			//setup for SeleniumGrid
 //			rwd = new RemoteWebDriver(new URL("http://localhost:4444/"), getEdgeOptions());
 //			driver.set(rwd);
+			
+			runningBrowser.set("EDGE ID: " + String.valueOf(Thread.currentThread().getId()));
 			
 			return driver.get();
 		}
