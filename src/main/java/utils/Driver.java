@@ -24,7 +24,7 @@ public class Driver {
 		
 		RemoteWebDriver rwd;
 		
-		if(browser.equalsIgnoreCase("chrome")) {	
+		if(browser.equalsIgnoreCase("chrome")) {
 //    		WebDriver driver = new ChromeDriver();
 			driver.set(new ChromeDriver(getChromeOptions()));
 //			driver.set(new ChromeDriver());
