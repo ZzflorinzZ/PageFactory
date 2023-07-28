@@ -1,10 +1,13 @@
 package test;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import utils.BaseTest;
+import utils.TestNgListeners;
 
+//@Listeners(TestNgListeners.class)
 public class LoginTest extends BaseTest{
 
 	@Parameters({"user", "pass"})

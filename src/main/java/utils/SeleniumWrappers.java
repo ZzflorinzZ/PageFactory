@@ -37,7 +37,7 @@ public class SeleniumWrappers extends BaseTest {
 	 * @param element (WebElement)
 	 */
 	public void click(WebElement element) {
-		Log.info("Called method <click> on element" + element.getAttribute("outerHTML"));
+		Log.info(runningBrowser.get() + "Called method <click> on element" + element.getAttribute("outerHTML"));
 		try {
 			waitForElementToBeClickable(element);
 			element.click();

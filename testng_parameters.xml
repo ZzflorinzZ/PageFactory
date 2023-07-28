@@ -7,6 +7,10 @@
 	  <parameter name = "invpass" value = "BadPass"/>
 	  <parameter name = "url" value = "https://keyfood.ro/"/>
 	  
+	<listeners>
+		<listener class-name = "utils.TestNgListeners"/>
+	</listeners>	  
+	  
   <test name="Chrome"   >
 	  <parameter name = "browser" value = "chrome"/>
     <classes>

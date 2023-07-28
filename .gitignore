@@ -1,4 +1,6 @@
 .settings/
+logs/
+poze/
 target/
 test-output/
 .classpath
