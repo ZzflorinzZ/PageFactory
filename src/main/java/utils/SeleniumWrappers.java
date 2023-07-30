@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,7 @@ import org.testng.TestException;
 
 
 /**
- * orice
+ * SeleniumWrappers class containing methods based on <WebElement element> usage
  */
 public class SeleniumWrappers extends BaseTest {
 	
@@ -25,7 +26,103 @@ public class SeleniumWrappers extends BaseTest {
 		this.driver = driver;
 	}
 
-//CLICK METHODS	
+	//================================================================================================================================		
+	// JS ALERT METHODS
+	//============================================
+	/**
+	 * Wrapped method over Selenium default Alert accept() method, enhanced
+	 * with:</br>
+	 * 1. catch NoAlertPresentException</br>
+	 * 2. catch General exception</br>
+	 */
+	public void jsAlertAccept() {
+		Log.info(runningBrowser.get() + " Called method <jsAlertAccept()>");
+		try {
+			driver.switchTo().alert().accept();
+		} catch (NoAlertPresentException e) {
+			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertAccept()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			throw new TestException(runningBrowser.get() + " NoAlertPresentException in method <jsAlertAccept()>");
+		} catch (Exception e) {
+			Log.error(runningBrowser.get() + " Exception error in method <jsAlertAccept()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			throw new TestException(runningBrowser.get() + " Exception error in method <jsAlertAccept()>");
+		}
+	}
+
+	//============================================
+	/**
+	 * Wrapped method over Selenium default Alert dismiss() method, enhanced
+	 * with:</br>
+	 * 1. catch NoAlertPresentException</br>
+	 * 2. catch General exception</br>
+	 */
+	public void jsAlertDismiss() {
+		Log.info(runningBrowser.get() + " Called method <jsAlertDismiss()>");
+		try {
+			driver.switchTo().alert().dismiss();
+		} catch (NoAlertPresentException e) {
+			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertDismiss()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			throw new TestException(runningBrowser.get() + " NoAlertPresentException in method <jsAlertDismiss()>");
+		} catch (Exception e) {
+			Log.error(runningBrowser.get() + " Exception error in method <jsAlertDismiss()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			throw new TestException(runningBrowser.get() + " Exception error in method <jsAlertDismiss()>");
+		}
+	}
+
+	//============================================
+	/**
+	 * Wrapped method over Selenium default Alert getText() method, enhanced
+	 * with:</br>
+	 * 1. catch NoAlertPresentException</br>
+	 * 2. catch General exception</br>
+	 */
+	public String jsAlertGetText() {
+		Log.info(runningBrowser.get() + " Called method <jsAlertGetText()>");
+		try {
+			if (driver.switchTo().alert().getText() == null) {
+				return null;
+			} else {
+				return driver.switchTo().alert().getText();
+			}
+		} catch (NoAlertPresentException e) {
+			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertGetText()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			return e.getMessage(); 
+		} catch (Exception e) {
+			Log.error(runningBrowser.get() + " Exception error in method <jsAlertGetText()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			return e.getMessage(); 
+		}
+	}
+
+	//============================================
+	/**
+	 * Wrapped method over Selenium default Alert sendKeys() method, enhanced
+	 * with:</br>
+	 * 1. catch NoAlertPresentException</br>
+	 * 2. catch General exception</br>
+	 */
+	public void jsAlertSendKeys(String textToSend) {
+		Log.info(runningBrowser.get() + " Called method <jsAlertSendKeys()>");
+		try {
+			driver.switchTo().alert().sendKeys(textToSend);
+		} catch (NoAlertPresentException e) {
+			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertSendKeys()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			throw new TestException(runningBrowser.get() + " NoAlertPresentException in method <jsAlertSendKeys()>");
+		} catch (Exception e) {
+			Log.error(runningBrowser.get() + " Exception error in method <jsAlertSendKeys()>");
+			Log.error(runningBrowser.get() + " " + e.getMessage());
+			throw new TestException(runningBrowser.get() + " Exception error in method <jsAlertSendKeys()>");
+		}
+	}
+
+	//================================================================================================================================	
+	//CLICK METHODS	
+	//============================================
 	/**
 	 * Wrapped method over Selenium default click() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -57,6 +154,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 	
+	//============================================
 	/**
 	 * Wrapped method over Selenium Actions default doubleClick() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -90,9 +188,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-//	Log.info("call <waitForElementToBeClickable> on " + locator.toString());	--pt By locator
-	
-//WAIT METHODS
+	//================================================================================================================================		
+	//WAIT METHODS
+	//============================================
 	/**
 	 * Wrapped method over Selenium default elementToBeClickable() condition, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -118,6 +216,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
+	//============================================
 	/**
 	 * Wrapped method over Selenium default visibilityOf() condition, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -142,27 +241,8 @@ public class SeleniumWrappers extends BaseTest {
 			throw new TestException(runningBrowser.get() + " Exception error in method <waitForElementToBeVisible()>");
 		}
 	}
-	
-	/**
-	 * Wrapped method over Selenium default ...............() condition, enhanced with:</br>
-	 * 1. Logging mechanism</br>
-	 * 2. Explicit wait</br>
-	 * 3. catch NoSuchElementException</br>
-	 * 
-	 * @param element (WebElement)
-	 */
-/*	public void waitForElementToBePresent(WebElement element) {
-  		Log.info("Called method <waitForElementToBePresent> on element " + element.getAttribute("outerHTML"));
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait.until(ExpectedConditions.presenceOfElementLocated(element));			//cu ce se poate inlocui pt WebElement metoda <<presenceOfElementLocated>> folosita pt By ??
-		} catch (NoSuchElementException e) {
-			Log.error("Element not found in method <waitForElementToBePresent()>");
-			Log.error(e.getMessage());
-			throw new TestException("Element not found!");
-		}
-	}
-*/	
+		
+	//============================================
 	/**
 	 * Wrapped method over Selenium default textToBePresentInElement() condition, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -189,7 +269,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-//SEND KEYS METHOD		
+	//================================================================================================================================	
+	//SEND KEYS METHOD
+	//============================================
 	/**
 	 * Wrapped method over Selenium default sendKeys() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -218,7 +300,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-//IS DISPLAYED METHOD	
+	//================================================================================================================================		
+	//IS DISPLAYED METHOD
+	//============================================
 	/**
 	 * Wrapped method over Selenium default isDisplayed() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -244,7 +328,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-//HOOVER METHODS
+	//================================================================================================================================	
+	//HOOVER METHODS
+	//============================================
 	/**
 	 * Wrapped method over Selenium Actions default moveToElement() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -269,31 +355,11 @@ public class SeleniumWrappers extends BaseTest {
 			Log.error(runningBrowser.get() + " " + e.getMessage());
 			throw new TestException(runningBrowser.get() + " Exception error in method <hooverOnElementVisible()>");
 		}	
-	}
+	}	
 
-	/**
-	 * Wrapped method over Selenium Actions default moveToElement() method, enhanced with:</br>
-	 * 1. Logging mechanism</br>
-	 * 2. ...................() method, before any action to be performed on webElement</br>
-	 * 3. catch NoSuchElementException</br>
-	 * 
-	 * @param element (WebElement)
-	 */
-/*	public void hooverOnElementPresent(WebElement element) {
-		Log.info("Called method <hooverOnElementPresent()> on element " + element.getAttribute("outerHTML"));
-		Actions hoover = new Actions(driver);
-		try {
-			waitForElementToBePresent(element);
-			hoover.moveToElement(element).perform();
-		} catch (NoSuchElementException e) {
-			Log.error("Element not found in method <hooverOnElementPresent()>");
-			Log.error(e.getMessage());
-			throw new TestException("Element not found in method <hooverOnElementPresent()>");
-		}	
-	}
-*/	
-
-//DROPDOWN LISTS METHODS
+	//================================================================================================================================		
+	//DROPDOWN LISTS METHODS
+	//============================================
 	/**
 	 * Wrapped method over Selenium Select default selectByIndex() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -319,6 +385,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
+	//============================================
 	/**
 	 * Wrapped method over Selenium Select default selectByValue() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -344,6 +411,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 	
+	//============================================
 	/**
 	 * Wrapped method over Selenium Select default selectByVisibleText() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -369,6 +437,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 	
+	//============================================
 	/**
 	 * Wrapped method over Selenium Select default getFirstSelectedOption() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -394,7 +463,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
-//DRAG & DROP METHODS
+	//================================================================================================================================	
+	//DRAG & DROP METHODS
+	//============================================
 	/**
 	 * Wrapped method over Selenium Actions default dragAndDrop() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -420,6 +491,7 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
+	//============================================	
 	/**
 	 * Wrapped method over Selenium Actions default dragAndDropBy() method, enhanced with:</br>
 	 * 1. Logging mechanism</br>
@@ -452,6 +524,9 @@ public class SeleniumWrappers extends BaseTest {
 		}
 	}
 
+	//================================================================================================================================	
+	//REDIRECTED URL METHOD	
+	//============================================	
 	/**
 	 * Wrapped method over Selenium default driver.switchTo().window() functionality, enhanced with:</br>
 	 * 1. Logging mechanism</br>
