@@ -11,7 +11,7 @@ public class CartPage extends SeleniumWrappers{
 
 	public CartPage(WebDriver driver) {
 		super(driver);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver, this); //inlocuieste driver.findElement
 	}
 
 	@FindBy(xpath = "(//i[@class='klbth-icon-plus'])[1]") public WebElement increaseQtyButton;

@@ -39,10 +39,6 @@ public class SeleniumWrappers extends BaseTest {
 		Log.info(runningBrowser.get() + " Called method <jsAlertAccept()>");
 		try {
 			driver.switchTo().alert().accept();
-		} catch (NoAlertPresentException e) {
-			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertAccept()>");
-			Log.error(runningBrowser.get() + " " + e.getMessage());
-			throw new TestException(runningBrowser.get() + " NoAlertPresentException in method <jsAlertAccept()>");
 		} catch (Exception e) {
 			Log.error(runningBrowser.get() + " Exception error in method <jsAlertAccept()>");
 			Log.error(runningBrowser.get() + " " + e.getMessage());
@@ -61,10 +57,6 @@ public class SeleniumWrappers extends BaseTest {
 		Log.info(runningBrowser.get() + " Called method <jsAlertDismiss()>");
 		try {
 			driver.switchTo().alert().dismiss();
-		} catch (NoAlertPresentException e) {
-			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertDismiss()>");
-			Log.error(runningBrowser.get() + " " + e.getMessage());
-			throw new TestException(runningBrowser.get() + " NoAlertPresentException in method <jsAlertDismiss()>");
 		} catch (Exception e) {
 			Log.error(runningBrowser.get() + " Exception error in method <jsAlertDismiss()>");
 			Log.error(runningBrowser.get() + " " + e.getMessage());
@@ -87,10 +79,6 @@ public class SeleniumWrappers extends BaseTest {
 			} else {
 				return driver.switchTo().alert().getText();
 			}
-		} catch (NoAlertPresentException e) {
-			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertGetText()>");
-			Log.error(runningBrowser.get() + " " + e.getMessage());
-			return e.getMessage(); 
 		} catch (Exception e) {
 			Log.error(runningBrowser.get() + " Exception error in method <jsAlertGetText()>");
 			Log.error(runningBrowser.get() + " " + e.getMessage());
@@ -109,10 +97,6 @@ public class SeleniumWrappers extends BaseTest {
 		Log.info(runningBrowser.get() + " Called method <jsAlertSendKeys()>");
 		try {
 			driver.switchTo().alert().sendKeys(textToSend);
-		} catch (NoAlertPresentException e) {
-			Log.error(runningBrowser.get() + " Catch NoAlertPresentException in method <jsAlertSendKeys()>");
-			Log.error(runningBrowser.get() + " " + e.getMessage());
-			throw new TestException(runningBrowser.get() + " NoAlertPresentException in method <jsAlertSendKeys()>");
 		} catch (Exception e) {
 			Log.error(runningBrowser.get() + " Exception error in method <jsAlertSendKeys()>");
 			Log.error(runningBrowser.get() + " " + e.getMessage());
@@ -481,7 +465,7 @@ public class SeleniumWrappers extends BaseTest {
 			Actions action = new Actions(driver);
 			action.dragAndDrop(element1, element2).perform();
 		} catch (NoSuchElementException e) {
-			Log.error(runningBrowser.get() + " Element not found in method <dragAndDropElementToElement()>");			//ar trebui sa diferentiez NoSuchElementException pe element1 si element2 ?? ma gandesc sa folosesc un if, dar nu-mi dai seama cum ar trebui sa pun conditia
+			Log.error(runningBrowser.get() + " Element not found in method <dragAndDropElementToElement()>");
 			Log.error(runningBrowser.get() + " " + e.getMessage());
 			throw new TestException(runningBrowser.get() + " Element not found in method <dragAndDropElementToElement()>");
 		} catch (Exception e) {
